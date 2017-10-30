@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+void main()
+{
+
+int i,gd,gm,dx,dy,x1,y1,xn,yn,M;
+gd=DETECT;
+initgraph(&gd,&gm,"c:\\tc\\bgi");
+printf("enter the start coordinate");
+scanf("%d%d",&x1,&y1);
+printf("enter the ending point coordinate");
+scanf("%d%d",&xn,&yn);
+M=(yn-y1)/(xn-x1);
+for( i=x1;i<=xn;i++)
+{
+
+if(M<=1)
+{dx=1;
+dy=M*dx;
+}
+else
+{dy=1;
+dx=dy/M;
+}
+x1=x1+dx;
+y1=y1+dy;
+putpixel(x1,y1,34);
+}
+getch();
+closegraph();
+}
